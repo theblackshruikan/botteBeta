@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import java.util.Date;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -34,23 +34,27 @@ private SoundboardFragmentBinding binding;
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         List<Integer> samples = new ArrayList<>();
-        samples.add(R.raw.mehr);
-        samples.add(R.raw.pussy);
-        samples.add(R.raw.liebe);
-        int upperbound = 3;
-        Random rand = new Random();
+        samples.add(R.raw.colis);
+        samples.add(R.raw.criss);
+        samples.add(R.raw.fuc);
+        samples.add(R.raw.mere);
+        samples.add(R.raw.sacr);
+        samples.add(R.raw.sacracul);
+        samples.add(R.raw.sib);
+        samples.add(R.raw.taba);
+        samples.add(R.raw.weyons);
 
-        mp = MediaPlayer.create(getApplicationContext(), samples.get(0));
-
+        int int_random = getRandom();
+        mp = MediaPlayer.create(getApplicationContext(),samples.get(int_random));
 
         binding.button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int int_random = getRandom();
+                mp = MediaPlayer.create(getApplicationContext(),samples.get(int_random));
                 if (mp.isPlaying()) {
                     mp.stop();
                     mp.release();
-                    int int_random = rand.nextInt(upperbound);
-                    mp = MediaPlayer.create(getApplicationContext(),samples.get(int_random));
                 }
                 mp.start();
 
@@ -77,4 +81,15 @@ private SoundboardFragmentBinding binding;
         binding = null;
     }
 
+    private int getRandom() {
+        int random = 0;
+        Random rand = new Random();
+        int upperbound = 9;
+        Date date = new Date();
+        long milliSec = date.getTime()/ 100000000000L;
+        for (long i = 0; i < milliSec; i++){
+            random = rand.nextInt(upperbound);
+        }
+        return random;
+    }
 }
