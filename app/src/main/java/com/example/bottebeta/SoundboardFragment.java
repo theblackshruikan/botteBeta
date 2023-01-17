@@ -1,7 +1,9 @@
 package com.example.bottebeta;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,12 +44,21 @@ public class SoundboardFragment extends Fragment {
         prepareButton(view, savedInstanceState, samplesButton1(), NOMBRE_SONS_BUTTON_1, binding.button1);
         prepareButton(view, savedInstanceState, samplesButton3(), NOMBRE_SONS_BUTTON_3, binding.button3);
 
-        binding.button6.setOnClickListener(new View.OnClickListener() {
+        /*binding.button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(SoundboardFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
+        });*/
+
+        binding.button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/cJXjNC8")));
+            }
+        });
+
         });
     }
 
