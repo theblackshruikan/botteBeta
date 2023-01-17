@@ -52,13 +52,18 @@ public class SoundboardFragment extends Fragment {
             }
         });*/
 
+        binding.button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.twitch.tv/testeuralpha")));
+            }
+        });
+
         binding.button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/cJXjNC8")));
             }
-        });
-
         });
     }
 
